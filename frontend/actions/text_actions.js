@@ -37,7 +37,7 @@ export const deleteText = id => dispatch => (
   .catch(err => console.log(err))
 );
 
-export const exitText = text => dispatch => (
+export const editText = text => dispatch => (
   APIUtil.editText(text)
   .then(() => dispatch(receiveText(text)))
   .catch(err => console.log(err))
