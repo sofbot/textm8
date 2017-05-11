@@ -35,3 +35,9 @@ export const deleteText = id => (
     method: 'DELETE'
   })
 );
+
+export const searchTexts = text => {
+  return fetch(`http://localhost:8080/text/search/${text}/`)
+  .then(response => response.json())
+  .catch(err => console.log(err));
+};
