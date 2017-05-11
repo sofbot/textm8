@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Text = ({ text }) => (
+const Text = ({ title }) => (
   <div>
-    { text.title }
+    { title }
   </div>
 );
 

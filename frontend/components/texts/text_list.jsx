@@ -1,5 +1,6 @@
 import React from 'react';
 import Text from './text';
+import { orderBy } from 'lodash';
 
 class TextList extends React.Component {
   constructor(props) {
@@ -11,14 +12,14 @@ class TextList extends React.Component {
   }
 
   render() {
-    const texts = this.props.texts || [];
+    const texts = orderBy(this.props.texts, ['createdOn'], ['desc']);
 
     return(
       <div>
         <ul>
           {
-            Object.keys(texts).map((key, idx) => (
-              <Text key={ idx } text={ texts[key] } />
+            texts.map((text, idx) => (
+              <Text key={ idx } title={ text.title } />
             ))
           }
         </ul>
