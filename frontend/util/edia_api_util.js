@@ -1,6 +1,5 @@
 export const getAllTexts = () => (
   fetch('http://localhost:8080/text')
-  .then(response => response.json())
 );
 
 export const createText = text => (
@@ -14,7 +13,7 @@ export const createText = text => (
 );
 
 // text object must include text.id
-export const updateText = text => (
+export const editText = text => (
   fetch('http://localhost:8080/text', {
     method: 'PUT',
     body: JSON.stringify(text),
@@ -36,8 +35,7 @@ export const deleteText = id => (
   })
 );
 
-export const searchTexts = text => {
-  return fetch(`http://localhost:8080/text/search/${text}/`)
+export const searchTexts = text => (
+  fetch(`http://localhost:8080/text/search/${text}/`)
   .then(response => response.json())
-  .catch(err => console.log(err));
-};
+);
