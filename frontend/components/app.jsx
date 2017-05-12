@@ -1,9 +1,9 @@
 import React from 'react';
-import TextListContainer from './texts/text_list_container';
+import SearchContainer from './search/search_container';
 
 const App = state => (
   <div>
-    <TextListContainer />
+    <SearchContainer />
   </div>
 );
 

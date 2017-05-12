@@ -1,33 +1,30 @@
 import React from 'react';
+import { filter } from 'lodash';
 
 class TextForm extends React.Component {
   constructor(props) {
     super(props);
     const { text } = this.props;
-
     this.state = {
       title: text ? text.title : '',
       content: text ? text.content : '',
       id: text ? text.id : '',
       createdOn: text ? text.createdOn : '',
-      score: text ? text.score : ''
+      score: text ? text.score : 0
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
-    const {createText, editText, text, toggleEdit} = this.props;
+    const { createText, editText, text, toggleEdit } = this.props;
     e.preventDefault();
 
     if (text) {
       editText(this.state);
     } else {
-      const newText = this.state;
-      delete newText.id;
-      delete newText.createdOn;
-      delete newText.score;
-      createText(newText);
+      createText(
+        filter(this.state, attr => !attr.id && !attr.createdOn)
+      );
     }
     toggleEdit();
   }
@@ -39,7 +36,7 @@ class TextForm extends React.Component {
   }
 
   render() {
-    const header = (this.action === 'edit' ? 'Edit Text' : 'New Text');
+    const header = (this.props.text ? 'Edit Text' : 'New Text');
 
     return(
       <div>

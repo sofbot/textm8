@@ -37,5 +37,4 @@ export const deleteText = id => (
 
 export const searchTexts = text => (
   fetch(`http://localhost:8080/text/search/${text}/`)
-  .then(response => response.json())
 );

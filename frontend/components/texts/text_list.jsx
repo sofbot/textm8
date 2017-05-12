@@ -26,8 +26,8 @@ class TextList extends React.Component {
   content() {
     if (this.state.editMode) {
       return <TextFormContainer
-                text={ this.state.selected }
-                toggleEdit={ this.toggleEdit } />;
+        text={ this.state.selected }
+        toggleEdit={ this.toggleEdit } />;
     } else {
       const texts = orderBy(this.props.texts, ['createdOn'], ['desc']);
       return (
@@ -36,8 +36,8 @@ class TextList extends React.Component {
             {
               texts.map((text, idx) => (
                 <Text key={ idx }
-                      text={ text }
-                      toggleEdit={ this.toggleEdit } />
+                  text={ text }
+                  toggleEdit={ this.toggleEdit } />
               ))
             }
           </ul>
