@@ -1,0 +1,41 @@
+@import '../util/vars.scss';
+@import '../util/mixins.scss';
+
+.row-container {
+  flex-direction: row;
+  align-items: center;
+}
+
+.text {
+  border-top: $border;
+  border-bottom: $border;
+  padding: 15px;
+  width: 95%;
+  overflow: auto;
+}
+
+.text:hover {
+  background-color: #eee;
+  border-color: #eee;
+  font-weight: 600;
+}
+
+.close {
+  @include textIcon;
+  background-image: url('../images/close.png');
+}
+
+.edit {
+  @include textIcon;
+  background-image: url('../images/edit.svg');
+}
+
+.title {
+  width: 90%;
+  cursor: pointer;
+}
+
+.text-detail {
+  margin-left: 40px;
+  width: 80%;
+}

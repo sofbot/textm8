@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from './header/header';
 import SearchContainer from './search/search_container';
 
 const App = state => (
-  <div>
+  <div className={ 'wrapper' }>
+    <Header />
     <SearchContainer />
   </div>
 );

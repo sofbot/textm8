@@ -1,0 +1,28 @@
+@import '../util/vars.scss';
+@import '../util/mixins.scss';
+
+form {
+  width: 50%;
+  margin-top: 5vh;
+}
+
+.mode {
+  color: orange;
+  margin-right: 5px;
+}
+
+.save {
+  @include formBtn($green);
+  @include colorBtn(transparent, $green)
+}
+.save:hover {
+  @include colorBtn($green, whitesmoke);
+}
+
+.back {
+  @include formBtn($lightestGray);
+  color: lightgrey;
+}
+.back:hover {
+  @include colorBtn($lightestGray, black);
+}

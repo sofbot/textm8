@@ -27,7 +27,8 @@ export const getAllTexts = () => dispatch => (
 
 export const createText = text => dispatch => (
   textAPI.createText(text)
-    .then(() => dispatch(receiveText(text)))
+    .then(response => response.json())
+    .then(newText => dispatch(receiveText(newText)))
     .catch(err => console.log(err))
 );
 

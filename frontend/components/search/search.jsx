@@ -12,10 +12,12 @@ class Search extends React.Component {
     this.checkQuery = this.checkQuery.bind(this);
   }
 
+  // controlled inputs, also calling checkQuery every time an input is changed
   handleChange(e) {
     this.setState({ query: e.target.value}, this.checkQuery);
   }
 
+  // returns parsed query search results, or all texts if search field is empty
   checkQuery() {
     const { searchTexts, getAllTexts } = this.props;
     const { query } = this.state;
@@ -26,6 +28,7 @@ class Search extends React.Component {
     }
   }
 
+  // returns query in correct format for the search url
   parseQuery(query) {
     return query.trim().split(" ").join("+");
   }
@@ -36,10 +39,12 @@ class Search extends React.Component {
 
   render() {
     return(
-      <div>
-        <input value={ this.state.query }
-          onChange={ this.handleChange }
-          onClick={ this.clearField }/>
+      <div className={ 'container' }>
+        <div className={ 'search-container' }>
+          <input value={ this.state.query }
+            onChange={ this.handleChange }
+            onClick={ this.clearField }/>
+        </div>
         <TextListContainer />
       </div>
     );

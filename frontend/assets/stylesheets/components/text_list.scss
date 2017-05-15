@@ -1,0 +1,16 @@
+.list {
+  width: 100%;
+  overflow: auto;
+  height: 85%;
+}
+
+.new-txt-btn {
+  width: 30px;
+  height: 30px;
+  background-image: url('../images/new.png');
+  background-size: contain;
+  cursor: pointer;
+  position: absolute;
+  right: 35vw;
+  top: 10vh;
+}

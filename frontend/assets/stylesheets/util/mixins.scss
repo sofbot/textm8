@@ -1,0 +1,24 @@
+// save/back btns on edit/new forms
+@mixin formBtn($color) {
+  padding: 5px;
+  border: 1px solid $color;
+  border-radius: 3px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+@mixin colorBtn($backgroundColor, $color) {
+  background-color: $backgroundColor;
+  color: $color;
+}
+
+// inline edit/delete text icons
+@mixin textIcon() {
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}

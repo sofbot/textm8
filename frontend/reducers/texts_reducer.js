@@ -1,3 +1,5 @@
+// the texts slice of state is an object
+// with text.id as the key for each text 
 import {
   RECEIVE_TEXT,
   REMOVE_TEXT,
@@ -18,9 +20,7 @@ const TextsReducer = (state = {}, action) => {
       const newText = {[action.text.id]: action.text};
       return merge({}, state, newText);
     case REMOVE_TEXT:
-      // use filter here?
-      const id = action.text.id;
-      delete newState.id;
+      delete newState[action.id];
       return newState;
     case RECEIVE_RESULTS:
       const freshState = {};

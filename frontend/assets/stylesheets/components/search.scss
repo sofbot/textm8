@@ -1,0 +1,17 @@
+@import '../util/vars.scss';
+
+.container {
+  height: 75vh;
+  width: 50vw;
+  border-left: $border;
+  border-right: $border;
+  border-top: $search-border;
+  align-items: center;
+}
+
+.search-container {
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+  border: $search-border;
+}

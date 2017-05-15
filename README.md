@@ -1,56 +1,35 @@
-# Text REST Service with Elastic Search support
-This application provides a REST interface that allows CRUD and search functionality on text entities.
-This is meant to be used for the front-end coding assignment.
+# __text m8__
+text m8 is a static web module built on top of this RESTful interface: https://github.com/EdiaEducationTechnology/text-rest-client  
 
-# Requirements
-- Java 1.8 Runtime
-- Maven
-
-# Start REST service
-- Browse to the root project containing the `pom.xml` file
-- Start the server by executing `mvn spring-boot:run`
-
-When the server started successfully, you should see the following message:
-`Tomcat started on port(s): 8080 (http)`
-
-You should also be able to request http://localhost:8080/text
-
-# CRUD actions
-- Create a new text:
-
-Send a POST request to http://localhost:8080/text with, for example, the following body
-```javascript
-{
-    "title": "Test title",
-    "content": "Test Content",
-    "score": 4
-}
+It provides a UI for creating, reading, updating, destroying, and searching text messages.  
 ```
-
-- Update an existing text:
-
-Send a PUT request to http://localhost:8080/text with, for example, the following body
-```javascript
-{
-    "id": "AVNVk1Ebt4z2On7hAeGI",
-    "title": "Test modified title",
-    "content": "Some modified text",
-    "score": 10
-}
+Built with React and Redux.
 ```
-- List all texts:
+## __usage__  
 
-Send a GET request to http://localhost:8080/text
+__setup:__
+* browse to the root of the project
+* run `npm install`
+* start the server by running `mvn spring-boot:run`
+* run `superstatic` and visit `http://localhost:3474` in your browser OR visit your full path to `index.html`
 
-- Find one text:
+__create text:__  
+click the orange '+' icon to show the `TextForm` component. Fill the __required__ title and text fields, then click 'save'  
 
-Send a GET request to http://localhost:8080/text/[ID]. For example in the previous test, you'd request http://localhost:8080/text/AVNVk1Ebt4z2On7hAeGI
+__read text:__  
+click a text title on the `TextList` (the main view) to show a text's content; click again to hide content  
 
-- Remove an existing text:
+__edit text:__  
+click the pencil icon beside a text to show the `TextForm`. Fields should be pre-filled with the selected text details  
 
-Send a DELETE request to http://localhost:8080/text/[ID]. For example in the previous test, you'd request http://localhost:8080/text/AVNVk1Ebt4z2On7hAeGI
+__delete text:__  
+click the 'x' icon next to the text you'd like to delete forever  
 
-# Searching texts
-- Request a basic fuzzy search (`analyze_wildcard` set to `true`) on the texts (content and title):
+__search texts:__  
+typing in the `Search` component executes a fuzzy search on all text titles and content. Results are dynamically displayed  
 
-Send a GET request to http://localhost:8080/text/search/ome+odifie+ex/. Mind the trailing slash. 
+## __roadmap__  
+future versions of text m8 will include:
+* Jest tests
+* Front-end error handling (for empty fields)
+* Client-side storage to store dictionary entries

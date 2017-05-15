@@ -1,3 +1,6 @@
+// import fetch for unsupported browsers
+import 'whatwg-fetch';
+
 export const getAllTexts = () => (
   fetch('http://localhost:8080/text')
 );

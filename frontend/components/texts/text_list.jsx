@@ -14,15 +14,18 @@ class TextList extends React.Component {
     this.content = this.content.bind(this);
   }
 
+  // load all texts to state
   componentWillMount() {
     this.props.getAllTexts();
   }
 
+  // editMode on/off; using state.selected to keep track of clicked text
   toggleEdit(text) {
     this.setState({ editMode: !this.state.editMode });
     this.setState({ selected: text });
   }
 
+  // render form if edit mode is on; or list all texts if edit mode is off
   content() {
     if (this.state.editMode) {
       return <TextFormContainer
@@ -31,17 +34,19 @@ class TextList extends React.Component {
     } else {
       const texts = orderBy(this.props.texts, ['createdOn'], ['desc']);
       return (
-        <div>
-          <ul>
+        <div className={ 'container' }>
+          <ul className={ 'list' }>
             {
               texts.map((text, idx) => (
                 <Text key={ idx }
                   text={ text }
-                  toggleEdit={ this.toggleEdit } />
+                  toggleEdit={ this.toggleEdit }
+                  deleteText={ this.props.deleteText } />
               ))
             }
           </ul>
-          <div onClick={ () => this.toggleEdit(null) }> new text </div>
+          <div className={ 'new-txt-btn' }
+            onClick={ () => this.toggleEdit(null) }></div>
         </div>
       );
     }
